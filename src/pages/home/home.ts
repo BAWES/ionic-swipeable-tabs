@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { ContactPage } from '../contact/contact';
 
@@ -9,12 +9,14 @@ import { ContactPage } from '../contact/contact';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  rootNavCtrl: NavController;
 
+  constructor(public navCtrl: NavController, navParams: NavParams) {
+    this.rootNavCtrl = navParams.get('rootNavCtrl'); 
   }
 
   openNewPage(){
-    this.navCtrl.push(ContactPage);
+    this.rootNavCtrl.push(ContactPage);
   }
 
 }
